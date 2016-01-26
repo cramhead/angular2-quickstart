@@ -1,0 +1,15 @@
+# gitignore files need a comment on first line \o/
+TODO.txt
+node_modules/
+coverage/
+.tscache/
+dist/
+index.html
+albums.html
+!/*/index.html
+.idea
+*.log
+*.css
+*.css.map
+*.js.map
+.vscode/
