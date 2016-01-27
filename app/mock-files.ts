@@ -1,5 +1,5 @@
-import {FileService, File, FileType} from './fileService';
-export var FILES: File[] = [
+import {FileService, FileElement, FileType} from './fileService';
+export var FILES: FileElement[] = [
     { name: 'img', path: 'http://placehold.it/100x100/4D99E0/ffffff.png' },
     { name: 'img', path: 'http://placehold.it/100x100/75CC00/ffffff.png' },
     { name: 'img', path: 'http://placehold.it/100x100/E49800/ffffff.png' },

@@ -1,27 +1,33 @@
 import {Component, Input, OnInit} from 'angular2/core';
 import {Tabs} from './tabs';
-import {FileService, File} from './fileService';
+import {FileService, FileElement} from './fileService';
+import {ImageSelector} from './imageSelector';
 
 @Component({
     selector: 'tab',
     template: `
         <div [hidden]="!active" class="gallery" >
-            <a *ngFor="#img of files" href={{img.path}}>
-                <img src={{img.path}} />
+            <a *ngFor="#imgFile of fileElements" href={{imgFile.path}} (click)="popEditor">
+                <imageSelector [imageElement]="imgFile" ></imageSelector>
             </a>
         <div>`,
-    providers: [FileService]
+    providers: [FileService],
+    directives: [ImageSelector]
 })
 export class Tab implements OnInit {
     @Input('tabTitle') title: string;
-    @Input('active') active: boolean;
+    public active: boolean;
 
-    files: File[];
+    public fileElements: FileElement[];
     constructor(private tabs: Tabs, private fileService: FileService) {
         tabs.addTab(this);
     }
 
     ngOnInit() {
-       this.files = this.fileService.getFiles();
+       this.fileElements = this.fileService.getFiles();
+    }
+    popEditor(evt) {
+        evt.preventDefault();
+        console.log('editor');
     }
 }

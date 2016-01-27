@@ -1,4 +1,4 @@
-System.register(['angular2/core', './tabs', './fileService'], function(exports_1) {
+System.register(['angular2/core', './tabs', './fileService', './imageSelector'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', './tabs', './fileService'], function(exports_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tabs_1, fileService_1;
+    var core_1, tabs_1, fileService_1, imageSelector_1;
     var Tab;
     return {
         setters:[
@@ -20,6 +20,9 @@ System.register(['angular2/core', './tabs', './fileService'], function(exports_1
             },
             function (fileService_1_1) {
                 fileService_1 = fileService_1_1;
+            },
+            function (imageSelector_1_1) {
+                imageSelector_1 = imageSelector_1_1;
             }],
         execute: function() {
             Tab = (function () {
@@ -29,21 +32,22 @@ System.register(['angular2/core', './tabs', './fileService'], function(exports_1
                     tabs.addTab(this);
                 }
                 Tab.prototype.ngOnInit = function () {
-                    this.files = this.fileService.getFiles();
+                    this.fileElements = this.fileService.getFiles();
+                };
+                Tab.prototype.popEditor = function (evt) {
+                    evt.preventDefault();
+                    console.log('editor');
                 };
                 __decorate([
                     core_1.Input('tabTitle'), 
                     __metadata('design:type', String)
                 ], Tab.prototype, "title", void 0);
-                __decorate([
-                    core_1.Input('active'), 
-                    __metadata('design:type', Boolean)
-                ], Tab.prototype, "active", void 0);
                 Tab = __decorate([
                     core_1.Component({
                         selector: 'tab',
-                        template: "\n        <div [hidden]=\"!active\" class=\"gallery\" >\n            <a *ngFor=\"#img of files\" href={{img.path}}>\n                <img src={{img.path}} />\n            </a>\n        <div>",
-                        providers: [fileService_1.FileService]
+                        template: "\n        <div [hidden]=\"!active\" class=\"gallery\" >\n            <a *ngFor=\"#imgFile of fileElements\" href={{imgFile.path}} (click)=\"popEditor\">\n                <imageSelector [imageElement]=\"imgFile\" ></imageSelector>\n            </a>\n        <div>",
+                        providers: [fileService_1.FileService],
+                        directives: [imageSelector_1.ImageSelector]
                     }), 
                     __metadata('design:paramtypes', [tabs_1.Tabs, fileService_1.FileService])
                 ], Tab);

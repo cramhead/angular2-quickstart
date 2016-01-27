@@ -5,7 +5,7 @@ export enum FileType {
     File,
     Folder
 };
-export class File {
+export class FileElement {
   //  type: FileType;
     name: string;
     path: string;
@@ -13,7 +13,7 @@ export class File {
 
 @Injectable()
 export class FileService {
-    getFiles(): File[] {
+    getFiles(): FileElement[] {
         return FILES;
     }
 }

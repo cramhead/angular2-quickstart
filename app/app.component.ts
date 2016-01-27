@@ -15,12 +15,12 @@ var images: string[];
         <li><a href="">Page Title</a></li>
         </ul>
        <tabs>
-        <tab tabTitle="Foo">
-            Content of tab Foo
-        </tab>
-        <tab tabTitle="Bar">
-            Content of tab Bar
-        </tab>
+            <tab tabTitle="Foo">
+                Content of tab Foo
+            </tab>
+            <tab tabTitle="Bar">
+                Content of tab Bar
+            </tab>
         </tabs>
     `,
     directives: [Tabs, Tab]

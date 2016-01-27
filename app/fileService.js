@@ -9,7 +9,7 @@ System.register(['angular2/core', './mock-files'], function(exports_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, mock_files_1;
-    var FileType, File, FileService;
+    var FileType, FileElement, FileService;
     return {
         setters:[
             function (core_1_1) {
@@ -25,12 +25,12 @@ System.register(['angular2/core', './mock-files'], function(exports_1) {
             })(FileType || (FileType = {}));
             exports_1("FileType", FileType);
             ;
-            File = (function () {
-                function File() {
+            FileElement = (function () {
+                function FileElement() {
                 }
-                return File;
+                return FileElement;
             })();
-            exports_1("File", File);
+            exports_1("FileElement", FileElement);
             FileService = (function () {
                 function FileService() {
                 }
