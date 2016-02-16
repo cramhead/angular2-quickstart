@@ -34,7 +34,9 @@ System.register(['angular2/core', './tabs', './fileService', './imageSelector'],
                     tabs.addTab(this);
                 }
                 Tab.prototype.ngOnInit = function () {
+                    var _this = this;
                     this.fileElements = this.fileService.getFiles();
+                    this.fileService.files$.subscribe(function (newFiles) { _this.fileElements = newFiles; }, function (error) { console.error('new error: ' + error); }, function () { console.log('complete'); });
                 };
                 Tab.prototype.popEditor = function (evt, img) {
                     evt.preventDefault();

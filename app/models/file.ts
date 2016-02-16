@@ -4,7 +4,5 @@ export enum FileType {
 }
 
 export class File{
-    //  type: FileType;
-    name: string;
-    path: string;
+  constructor(public name: string, public path:string) {}
 }

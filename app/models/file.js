@@ -10,7 +10,9 @@ System.register([], function(exports_1) {
             })(FileType || (FileType = {}));
             exports_1("FileType", FileType);
             File = (function () {
-                function File() {
+                function File(name, path) {
+                    this.name = name;
+                    this.path = path;
                 }
                 return File;
             }());

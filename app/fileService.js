@@ -27,10 +27,21 @@ System.register(['angular2/core', './mock-files', 'rxjs/add/operator/share', 'rx
             FileService = (function () {
                 function FileService() {
                     var _this = this;
+                    this.pushFile = function () {
+                        console.log('pushing');
+                        _this.dataStore.files.push({ name: 'img', path: 'http://placehold.it/100x100/4D99E0/ffffff.png' });
+                        //   this._filesObserver.next(this._dataStore.files);
+                    };
                     this.files$ = new Observable_1.Observable(function (observer) { return _this._filesObserver = observer; }).share();
+                    this.dataStore = {
+                        files: [{ name: 'img', path: 'http://placehold.it/100x100/4D99E0/ffffff.png' }]
+                    };
                 }
                 FileService.prototype.getFiles = function () {
-                    return mock_files_1.FILES;
+                    setInterval(this.pushFile, 1000);
+                    return this.dataStore.files = mock_files_1.FILES.map(function (file) {
+                        return file;
+                    });
                 };
                 FileService = __decorate([
                     core_1.Injectable(), 
