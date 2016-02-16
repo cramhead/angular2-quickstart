@@ -1,4 +1,5 @@
 System.register(['angular2/core', './tabs', './fileService', './imageSelector'], function(exports_1) {
+    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -29,12 +30,13 @@ System.register(['angular2/core', './tabs', './fileService', './imageSelector'],
                 function Tab(tabs, fileService) {
                     this.tabs = tabs;
                     this.fileService = fileService;
+                    this.active = false;
                     tabs.addTab(this);
                 }
                 Tab.prototype.ngOnInit = function () {
                     this.fileElements = this.fileService.getFiles();
                 };
-                Tab.prototype.popEditor = function (evt) {
+                Tab.prototype.popEditor = function (evt, img) {
                     evt.preventDefault();
                     console.log('editor');
                 };
@@ -45,14 +47,14 @@ System.register(['angular2/core', './tabs', './fileService', './imageSelector'],
                 Tab = __decorate([
                     core_1.Component({
                         selector: 'tab',
-                        template: "\n        <div [hidden]=\"!active\" class=\"gallery\" >\n            <a *ngFor=\"#imgFile of fileElements\" href={{imgFile.path}} (click)=\"popEditor\">\n                <imageSelector [imageElement]=\"imgFile\" ></imageSelector>\n            </a>\n        <div>",
+                        template: "\n        <div [hidden]=\"!active\" class=\"gallery\" >\n            <a *ngFor=\"#imgFile of fileElements\" href={{imgFile.path}} (click)=\"popEditor($event, imgFile)\">\n                <imageSelector [imageElement]=\"imgFile\" ></imageSelector>\n            </a>\n        </div>",
                         providers: [fileService_1.FileService],
                         directives: [imageSelector_1.ImageSelector]
                     }), 
                     __metadata('design:paramtypes', [tabs_1.Tabs, fileService_1.FileService])
                 ], Tab);
                 return Tab;
-            })();
+            }());
             exports_1("Tab", Tab);
         }
     }

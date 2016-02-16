@@ -4,7 +4,8 @@ import {FILES} from './mock-files';
 export enum FileType {
     File,
     Folder
-};
+}
+
 export class FileElement {
   //  type: FileType;
     name: string;

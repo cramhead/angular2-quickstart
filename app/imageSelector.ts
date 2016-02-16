@@ -32,4 +32,7 @@ export class ImageSelector {
     decCount() {
         this.count--;
     }
+    editImage(img: any) {
+        console.log('edit');
+    }
 }

@@ -1,4 +1,5 @@
-System.register(['angular2/core'], function(exports_1) {
+System.register(['angular2/core', './fileService'], function(exports_1) {
+    "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,12 +9,15 @@ System.register(['angular2/core'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, fileService_1;
     var Tabs;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (fileService_1_1) {
+                fileService_1 = fileService_1_1;
             }],
         execute: function() {
             Tabs = (function () {
@@ -32,6 +36,10 @@ System.register(['angular2/core'], function(exports_1) {
                     });
                     tab.active = true;
                 };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', fileService_1.FileElement)
+                ], Tabs.prototype, "selectedImage", void 0);
                 Tabs = __decorate([
                     core_1.Component({
                         selector: 'tabs',
@@ -40,7 +48,7 @@ System.register(['angular2/core'], function(exports_1) {
                     __metadata('design:paramtypes', [])
                 ], Tabs);
                 return Tabs;
-            })();
+            }());
             exports_1("Tabs", Tabs);
         }
     }

@@ -7,16 +7,16 @@ import {ImageSelector} from './imageSelector';
     selector: 'tab',
     template: `
         <div [hidden]="!active" class="gallery" >
-            <a *ngFor="#imgFile of fileElements" href={{imgFile.path}} (click)="popEditor">
+            <a *ngFor="#imgFile of fileElements" href={{imgFile.path}} (click)="popEditor($event, imgFile)">
                 <imageSelector [imageElement]="imgFile" ></imageSelector>
             </a>
-        <div>`,
+        </div>`,
     providers: [FileService],
     directives: [ImageSelector]
 })
 export class Tab implements OnInit {
     @Input('tabTitle') title: string;
-    public active: boolean;
+    public active: boolean = false;
 
     public fileElements: FileElement[];
     constructor(private tabs: Tabs, private fileService: FileService) {
@@ -26,7 +26,7 @@ export class Tab implements OnInit {
     ngOnInit() {
        this.fileElements = this.fileService.getFiles();
     }
-    popEditor(evt) {
+    popEditor(evt, img: FileElement) {
         evt.preventDefault();
         console.log('editor');
     }

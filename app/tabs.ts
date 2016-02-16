@@ -1,5 +1,6 @@
-import {Component} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
 import {Tab} from './Tab';
+import {FileElement} from './fileService';
 
 @Component({
     selector: 'tabs',
@@ -16,6 +17,7 @@ import {Tab} from './Tab';
 })
 export class Tabs {
     tabs: Tab[] = [];
+    @Input() selectedImage: FileElement;
 
     addTab(tab: Tab) {
         if (this.tabs.length === 0) {
@@ -24,7 +26,7 @@ export class Tabs {
         this.tabs.push(tab);
     }
     selectTab(tab: Tab) {
-        this.tabs.forEach((tab) => {
+        this.tabs.forEach((tab:Tab) => {
             tab.active = false;
         });
         tab.active = true;

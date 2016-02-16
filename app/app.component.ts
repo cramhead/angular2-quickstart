@@ -1,12 +1,13 @@
-import {Component} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
 import {Tabs} from './tabs';
 import {Tab} from './tab';
 
-var images: string[];
 
 @Component({
     selector: 'my-app',
     template: `
+    <div class="container">
+
        <!-- Breadcrumbs -->
         <ul class="breadcrumbs">
         <li><a href="">Home</a></li>
@@ -22,9 +23,9 @@ var images: string[];
                 Content of tab Bar
             </tab>
         </tabs>
+    </div>
     `,
     directives: [Tabs, Tab]
 })
 export class AppComponent {
-
 }

@@ -4,9 +4,6 @@ node_modules/
 coverage/
 .tscache/
 dist/
-index.html
-albums.html
-!/*/index.html
 .idea
 *.log
 *.css
