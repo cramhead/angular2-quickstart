@@ -1,4 +1,4 @@
-System.register(['angular2/core', './mock-files'], function(exports_1) {
+System.register(['angular2/core', './mock-files', 'rxjs/add/operator/share', 'rxjs/Observable'], function(exports_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9,8 +9,8 @@ System.register(['angular2/core', './mock-files'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, mock_files_1;
-    var FileType, FileElement, FileService;
+    var core_1, mock_files_1, Observable_1;
+    var FileService;
     return {
         setters:[
             function (core_1_1) {
@@ -18,21 +18,16 @@ System.register(['angular2/core', './mock-files'], function(exports_1) {
             },
             function (mock_files_1_1) {
                 mock_files_1 = mock_files_1_1;
+            },
+            function (_1) {},
+            function (Observable_1_1) {
+                Observable_1 = Observable_1_1;
             }],
         execute: function() {
-            (function (FileType) {
-                FileType[FileType["File"] = 0] = "File";
-                FileType[FileType["Folder"] = 1] = "Folder";
-            })(FileType || (FileType = {}));
-            exports_1("FileType", FileType);
-            FileElement = (function () {
-                function FileElement() {
-                }
-                return FileElement;
-            }());
-            exports_1("FileElement", FileElement);
             FileService = (function () {
                 function FileService() {
+                    var _this = this;
+                    this.files$ = new Observable_1.Observable(function (observer) { return _this._filesObserver = observer; }).share();
                 }
                 FileService.prototype.getFiles = function () {
                     return mock_files_1.FILES;

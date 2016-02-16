@@ -1,5 +1,5 @@
 import {Component, Input} from 'angular2/core';
-import {FileElement} from './fileService';
+import {File} from './fileService';
 
 @Component({
     selector: 'imageSelector',
@@ -18,7 +18,7 @@ import {FileElement} from './fileService';
     `,
 })
 export class ImageSelector {
-    @Input() imageElement: FileElement;
+    @Input() imageElement: File;
 
     count: number = 0;
 

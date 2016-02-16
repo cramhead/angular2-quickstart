@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {Tabs} from './tabs';
 import {Tab} from './tab';
 

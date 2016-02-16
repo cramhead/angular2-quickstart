@@ -6,7 +6,6 @@ coverage/
 dist/
 .idea
 *.log
-*.css
 *.css.map
 *.js.map
 .vscode/

@@ -1,6 +1,6 @@
 import {Component, Input} from 'angular2/core';
 import {Tab} from './Tab';
-import {FileElement} from './fileService';
+import {File} from './fileService';
 
 @Component({
     selector: 'tabs',
@@ -17,7 +17,7 @@ import {FileElement} from './fileService';
 })
 export class Tabs {
     tabs: Tab[] = [];
-    @Input() selectedImage: FileElement;
+    @Input() selectedImage: File;
 
     addTab(tab: Tab) {
         if (this.tabs.length === 0) {

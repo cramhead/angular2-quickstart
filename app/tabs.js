@@ -38,7 +38,7 @@ System.register(['angular2/core', './fileService'], function(exports_1) {
                 };
                 __decorate([
                     core_1.Input(), 
-                    __metadata('design:type', fileService_1.FileElement)
+                    __metadata('design:type', (typeof (_a = typeof fileService_1.File !== 'undefined' && fileService_1.File) === 'function' && _a) || Object)
                 ], Tabs.prototype, "selectedImage", void 0);
                 Tabs = __decorate([
                     core_1.Component({
@@ -48,6 +48,7 @@ System.register(['angular2/core', './fileService'], function(exports_1) {
                     __metadata('design:paramtypes', [])
                 ], Tabs);
                 return Tabs;
+                var _a;
             }());
             exports_1("Tabs", Tabs);
         }

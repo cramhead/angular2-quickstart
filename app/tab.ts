@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from 'angular2/core';
 import {Tabs} from './tabs';
-import {FileService, FileElement} from './fileService';
+import {FileService, File} from './fileService';
 import {ImageSelector} from './imageSelector';
 
 @Component({
@@ -18,7 +18,7 @@ export class Tab implements OnInit {
     @Input('tabTitle') title: string;
     public active: boolean = false;
 
-    public fileElements: FileElement[];
+    public fileElements: File[];
     constructor(private tabs: Tabs, private fileService: FileService) {
         tabs.addTab(this);
     }
@@ -26,7 +26,7 @@ export class Tab implements OnInit {
     ngOnInit() {
        this.fileElements = this.fileService.getFiles();
     }
-    popEditor(evt, img: FileElement) {
+    popEditor(evt, img: File) {
         evt.preventDefault();
         console.log('editor');
     }
